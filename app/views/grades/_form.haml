@@ -1,0 +1,17 @@
+= form_with(model: grade, local: true) do |form|
+  - if grade.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(grade.errors.count, "error")
+        prohibited this grade from being saved:
+      %ul
+        - grade.errors.full_messages.each do |message|
+          %li= message
+  .field
+    
+    = form.text_field :name,placeholder:'Nombre',class:'form-control'
+  .field.mt-2
+    = form.select(:teacher_id, Teacher.all.collect {|u| [[u.name, u.last_name].join, u.id]}, :prompt => 'Selecciona profesor') 
+    
+  .actions.mt-2
+    = form.submit text_button,class:'btn btn-primary'

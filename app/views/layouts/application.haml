@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title School
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+
+    = render "/partials/navigation"
+    %p.large-padding.roboto.red.white-text.text-center.alert{:style => "#{'display:none;' if alert.nil?} margin-bottom: 0px;"}
+      = alert
+    %span.close-parent{:style => "float: right; cursor: pointer;"} X
+
+    %p.large-padding.roboto.blue.white-text.text-center.alert{:style => "#{'display:none;' if notice.nil?} margin-bottom: 0px;"}
+      = notice
+    %span.close-parent{:style => "float: right; cursor: pointer;"} X 
+    = yield

@@ -1,0 +1,11 @@
+.container 
+  .row.justify-content-center
+    .col-md-4
+      %p{:style => "color: green"}= notice
+      = render @student
+      %div
+      .col-md-6.mt-2
+        = link_to "Editar datos de alumno", edit_student_path(@student),class:'btn btn-primary'
+      .col-md-6.mt-2        
+        = link_to "Regresar a alumnos", students_path,class:'btn btn-secondary'
+    

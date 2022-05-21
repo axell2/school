@@ -1,0 +1,29 @@
+.container
+  %h1 Alumnos grados
+  = link_to 'Nuevo alumno grado', new_student_grade_path,class:'btn btn-primary'
+  %table.table
+    %thead
+      %tr
+        %th Alumno
+        %th Grado
+        %th Profesor
+        %th Seccion
+        %th{:colspan => "3"}
+    %tbody
+      - @student_grades.each do |student_grade|
+        %tr
+          %td
+            = student_grade.student.name
+            = student_grade.student.last_name
+          %td
+            = student_grade.grade.name
+          %td 
+
+            = student_grade.grade.teacher.name
+            = student_grade.grade.teacher.last_name
+            
+          %td= student_grade.seccion
+          %td= link_to 'Ver alumno grado', student_grade,class:'btn btn-primary'
+          %td= link_to 'Eliminar alumno grado', student_grade, method: :delete, data: { confirm: 'Are you sure?' },class:'btn btn-danger'
+  %br/
+  

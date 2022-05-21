@@ -1,0 +1,21 @@
+= form_with(model: student) do |form|
+  - if student.errors.any?
+    %div{:style => "color: red"}
+      %h2
+        = pluralize(student.errors.count, "error")
+        prohibited this student from being saved:
+      %ul
+        - student.errors.each do |error|
+          %li= error.full_message
+  .form-group.mt-2
+    = form.text_field :name,class:'form-control',placeholder:'Nombre'
+  .form-group.mt-2
+    = form.text_field :last_name,class:'form-control',placeholder:'Apellidos'
+  .form-group.mt-2
+    = form.text_field :gender,class:'form-control',placeholder:'Genero'
+  .form-group.mt-2
+    = form.label :date_of_birth,'Fecha de nacimiento', style: "display: block"
+    = form.date_field :date_of_birth,class:'form-control'
+
+  .form-group.mt-3
+    = form.submit text_button,class:'btn btn-primary'

@@ -1,0 +1,19 @@
+= form_with(model: student_grade, local: true) do |form|
+  - if student_grade.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(student_grade.errors.count, "error")
+        prohibited this student_grade from being saved:
+      %ul
+        - student_grade.errors.full_messages.each do |message|
+          %li= message
+  .form-group.mt-2
+    = form.select(:student_id, Student.all.collect {|u| [[u.name, u.last_name].join, u.id]}, :prompt => 'Selecciona Alumno') 
+
+  .form-group.mt-2
+    = form.select(:grade_id, Grade.all.collect {|u| [u.name, u.id]}, :prompt => 'Selecciona grado') 
+  .form-group.mt-2
+    
+    = form.text_field :seccion,placeholder:'seccion',class:'form-control'
+  .actions.mt-2
+    = form.submit text_button,class:'btn btn-primary'

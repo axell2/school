@@ -1,0 +1,23 @@
+.container
+  %p#notice= notice
+  %p
+    %strong Student:
+    = @student_grade.student.name
+    = @student_grade.student.last_name
+
+  %p
+    %strong Grade:
+    = @student_grade.grade.name
+
+  %p
+    %strong Teacher:
+    = @student_grade.grade.teacher.name
+    = @student_grade.grade.teacher.last_name
+
+
+  %p
+    %strong Seccion:
+    = @student_grade.seccion
+  = link_to 'Editar alumno grado', edit_student_grade_path(@student_grade),class:'btn btn-primary'
+  
+  \#{link_to 'regresar alumno grados', student_grades_path,class:'btn btn-secondary'}

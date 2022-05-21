@@ -1,0 +1,7 @@
+.container
+  .row.justify-content-center
+    .col-md-4
+      %h1 Nuevo alumno ghrado
+      = render 'form', student_grade: @student_grade,text_button:'Crear alumno grado'
+      .mt-2
+        = link_to 'Regresar alumno grado', student_grades_path,class:'btn btn-secondary'

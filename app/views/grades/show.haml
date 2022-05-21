@@ -1,0 +1,13 @@
+.container
+  %p#notice= notice
+  %p
+    %strong Name:
+    = @grade.name
+  %p
+    %strong Teacher:
+    = @grade.teacher.name
+    = @grade.teacher.last_name
+
+  = link_to 'Editar grado', edit_grade_path(@grade),class:'btn btn-primary'
+  
+  \#{link_to 'Regresar a grados', grades_path,class:'btn btn-secondary'}

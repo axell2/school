@@ -1,0 +1,10 @@
+.container
+  .row.justify-content-center
+    .col-md-4
+      %h1 Editar profesor
+      = render "form", student: @teacher,text_button: 'Actualizar profesor'
+      %br/
+      %div
+        = link_to "Regresar a profesores", teachers_path,class:'btn btn-secondary'
+        
+    

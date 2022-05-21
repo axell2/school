@@ -1,0 +1,20 @@
+= form_for @teacher  do |form|
+  - if @teacher.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@teacher.errors.count, "error")
+        prohibited this teacher from being saved:
+      %ul
+        - @teacher.errors.full_messages.each do |message|
+          %li= message
+  .form-group.mt-2
+    
+    = form.text_field :name,placeholder:'Nombre',class:'form-control'
+  .form-group.mt-2
+    
+    = form.text_field :last_name,placeholder:'Apellidos',class:'form-control'
+  .form-group.mt-2
+    
+    = form.text_field :gender,placeholder:'Genero',class:'form-control'
+  .form-group.mt-2
+    = form.submit text_button,class:'btn btn-primary'
